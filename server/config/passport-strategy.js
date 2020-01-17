@@ -21,8 +21,6 @@ passport.use(
         },
         (accessToken, refreshToken, expires_in, profile, done) => {
             // TODO: move to User.findOrCreate method
-            console.log(profile)
-
             User.findOne({ spotifyId: profile.id })
                 .then(thisUser => {
                     if (thisUser) {

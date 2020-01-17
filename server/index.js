@@ -1,21 +1,37 @@
-const dotenv = require("dotenv").config()
+require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
 const passport = require("passport")
 const cors = require("cors")
+const session = require("express-session")
+const http = require("http")
+const socketio = require("socket.io")
 
 require("./config/passport-strategy.js")
 
-const app = express()
-
-// import routes
 const authRoutes = require("./routes/auth-routes.js")
+
+const app = express()
+const server = http.Server(app)
 
 // middleware
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(cors())
+app.use(
+    cors({
+        // TODO: dynamic origin for production variable
+        origin: "localhost:3000",
+    })
+)
+app.use(express.json())
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+    })
+)
 
 // db
 mongoose.connect(
@@ -30,13 +46,14 @@ mongoose.connect(
 )
 
 // routes
-app.get("/", (req, res) => {
-    res.send("welcome home fam")
-})
 app.use("/auth", authRoutes)
+
+// socketio setup
+const io = socketio(server)
+app.set("io", io)
 
 // start
 const PORT = process.env.PORT || 3001
-app.listen(PORT, () =>
+server.listen(PORT, () =>
     console.log(`app now listening for requests on port ${PORT}`)
 )

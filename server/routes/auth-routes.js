@@ -1,31 +1,31 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
-
-// login view
-router.get("/login", (req, res) => {
-    res.send(
-        "<a href='/auth/spotify'>login here fam</a><a href='/auth/logout'>logout here</a>"
-    )
-})
-
-router.get("/logout", (req, res) => {
-    req.logout()
-    res.redirect("/auth/login")
-})
+const User = require("../models/user-model.js")
 
 // logout view
 router.get("/logout", (req, res) => {
-    // handle with passport
     req.logout()
     res.redirect("/")
 })
 
+const addSocketIdtoSession = (req, res, next) => {
+    req.session.socketId = req.query.socketId
+    next()
+}
+
+const emitUser = (req, res) => {
+    const io = req.app.get("io")
+    console.log("finna emit " + req.user)
+    io.in(req.session.socketId).emit("user", req.user)
+    res.end()
+}
+
 // spotify auth routes
 router.get(
     "/spotify",
+    addSocketIdtoSession,
     passport.authenticate("spotify", {
-        //
         scope: [
             // user
             "user-read-email",
@@ -41,12 +41,6 @@ router.get(
 )
 
 // spotify auth callback
-router.get(
-    "/spotify/redirect",
-    passport.authenticate("spotify", { failureRedirect: "/login" }),
-    (req, res) => {
-        res.redirect("http://localhost:3000/")
-    }
-)
+router.get("/spotify/redirect", passport.authenticate("spotify"), emitUser)
 
 module.exports = router
