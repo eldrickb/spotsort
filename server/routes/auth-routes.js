@@ -1,7 +1,22 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
-const User = require("../models/user-model.js")
+
+const jwtSecret = process.env.JWT_SECRET
+
+const generateUserToken = (req, res) => {
+    const { spotifyId } = req.user
+
+    const payload = {
+        spotifyId,
+    }
+
+    // sign token
+    const accessToken = jwt.sign(JSON.stringify(payload), jwtSecret)
+
+    res.cookie("jwt", accessToken, { httpOnly: true })
+    res.status(200).send({ username })
+}
 
 // logout view
 router.get("/logout", (req, res) => {
@@ -9,22 +24,9 @@ router.get("/logout", (req, res) => {
     res.redirect("/")
 })
 
-const addSocketIdtoSession = (req, res, next) => {
-    req.session.socketId = req.query.socketId
-    next()
-}
-
-const emitUser = (req, res) => {
-    const io = req.app.get("io")
-    console.log("finna emit " + req.user)
-    io.in(req.session.socketId).emit("user", req.user)
-    res.end()
-}
-
-// spotify auth routes
+// initial spotify auth
 router.get(
     "/spotify",
-    addSocketIdtoSession,
     passport.authenticate("spotify", {
         scope: [
             // user
@@ -41,6 +43,10 @@ router.get(
 )
 
 // spotify auth callback
-router.get("/spotify/redirect", passport.authenticate("spotify"), emitUser)
+router.get(
+    "/spotify/redirect",
+    passport.authenticate("spotify"),
+    generateUserToken
+)
 
 module.exports = router

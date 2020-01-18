@@ -1,17 +1,13 @@
 const passport = require("passport")
 const SpotifyStrategy = require("passport-spotify").Strategy
+const passportJWT = require("passport-jwt")
+const JWTStrategy = passportJWT.Strategy
+
 const User = require("../models/user-model.js")
 
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
+const jwtSecret = process.env.JWT_SECRET
 
-passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
-        done(null, user)
-    })
-})
-
+// spotify strat
 passport.use(
     new SpotifyStrategy(
         {
@@ -20,7 +16,8 @@ passport.use(
             callbackURL: "/auth/spotify/redirect",
         },
         (accessToken, refreshToken, expires_in, profile, done) => {
-            // TODO: move to User.findOrCreate method
+            // TODO: move to User.findOrCreate method for cleanliness
+
             User.findOne({ spotifyId: profile.id })
                 .then(thisUser => {
                     if (thisUser) {
@@ -43,6 +40,23 @@ passport.use(
                     }
                 })
                 .catch(console.log)
+        }
+    )
+)
+
+// jwt strat (we sessionless baybee)
+passport.use(
+    new JWTStrategy(
+        {
+            jwtFromRequest: req => req.cookies.jwt,
+            secretOrKey: jwtSecret,
+        },
+        (jwtPayload, done) => {
+            if (Date.now() < jwtPayload.expires) {
+                return done("jwt expred")
+            }
+
+            return done(null, jwtPayload)
         }
     )
 )
