@@ -1,0 +1,26 @@
+{
+    "name": "spotlist-server",
+    "version": "1.0.0",
+    "description": "server for spotlist",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.7.9",
+        "passport": "^0.4.0",
+        "passport-jwt": "^4.0.0",
+        "passport-spotify": "^1.1.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.6.0",
+        "eslint-plugin-react": "^7.16.0"
+    }
+}

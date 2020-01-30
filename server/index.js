@@ -3,6 +3,7 @@ require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose")
 const passport = require("passport")
+const cookieParser = require("cookie-parser")
 const cors = require("cors")
 
 require("./config/passport-strategy.js")
@@ -13,7 +14,11 @@ const app = express()
 
 // middleware
 app.use(passport.initialize())
-app.use(passport.session())
+app.use(
+    cookieParser({
+        expires: 24 * 60 * 60 * 1000,
+    })
+)
 app.use(
     cors({
         // TODO: dynamic origin for production variable

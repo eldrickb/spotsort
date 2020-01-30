@@ -16,10 +16,11 @@ import io from "socket.io-client"
 import LoginHandler from "./components/auth/login-handler.jsx"
 // import { API_URL } from "./utils/config.js"
 const API_URL = "localhost:3001"
-const socket = io(API_URL)
+
+const Session = React.createContext(null)
 
 export default () => (
     <>
-        <LoginHandler socket={socket} API_URL={API_URL}></LoginHandler>
+        <LoginHandler API_URL={API_URL}></LoginHandler>
     </>
 )

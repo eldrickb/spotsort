@@ -52,9 +52,8 @@ passport.use(
             secretOrKey: jwtSecret,
         },
         (jwtPayload, done) => {
-            if (Date.now() < jwtPayload.expires) {
-                return done("jwt expred")
-            }
+            // TODO: token expiry (handled by cookie parser?)
+            // TODO: what should this pass? (user info?)
 
             return done(null, jwtPayload)
         }

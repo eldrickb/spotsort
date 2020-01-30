@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
+const jwt = require("jsonwebtoken")
 
 const jwtSecret = process.env.JWT_SECRET
 
@@ -15,13 +16,14 @@ const generateUserToken = (req, res) => {
     const accessToken = jwt.sign(JSON.stringify(payload), jwtSecret)
 
     res.cookie("jwt", accessToken, { httpOnly: true })
-    res.status(200).send({ username })
+    res.status(200).send({ spotifyId })
 }
 
 // logout view
 router.get("/logout", (req, res) => {
     req.logout()
-    res.redirect("/")
+    res.clearCookie("jwt")
+    res.end()
 })
 
 // initial spotify auth
@@ -39,14 +41,32 @@ router.get(
             // playlist
             "playlist-read-private",
         ],
+        session: false,
     })
 )
 
 // spotify auth callback
 router.get(
     "/spotify/redirect",
-    passport.authenticate("spotify"),
+    passport.authenticate("spotify", { session: false }),
     generateUserToken
 )
 
 module.exports = router
+
+/*
+
+router.get(
+    "/protected",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        res.write("AUTHORIZED FAM")
+
+        res.write("\n\ncookie\n " + JSON.stringify(req.cookies))
+
+        res.write("\n\nuser\n " + JSON.stringify(req.user))
+        res.end()
+    }
+)
+
+*/
