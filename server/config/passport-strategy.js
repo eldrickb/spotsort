@@ -1,13 +1,17 @@
 const passport = require("passport")
 const SpotifyStrategy = require("passport-spotify").Strategy
+
+const jwt = require("jsonwebtoken")
+const jwtSecret = process.env.JWT_SECRET
 const passportJWT = require("passport-jwt")
 const JWTStrategy = passportJWT.Strategy
 
 const User = require("../models/user-model.js")
 
-const jwtSecret = process.env.JWT_SECRET
 
-// spotify strat
+/*
+    spotify strat
+*/
 passport.use(
     new SpotifyStrategy(
         {
@@ -16,46 +20,55 @@ passport.use(
             callbackURL: "/auth/spotify/redirect",
         },
         (accessToken, refreshToken, expires_in, profile, done) => {
-            // TODO: move to User.findOrCreate method for cleanliness
 
-            User.findOne({ spotifyId: profile.id })
-                .then(thisUser => {
-                    if (thisUser) {
-                        // if user found
-                        console.log("user is: ", thisUser)
-                        done(null, thisUser)
-                    } else {
-                        // if not, create new user
-                        new User({
-                            spotifyId: profile.id,
-                            username: profile.username,
-                            display_name: profile.displayName,
-                            email: profile._json.email,
-                        })
-                            .save()
-                            .then(newUser => {
-                                console.log("new user crated: " + newUser)
-                                done(null, newUser)
-                            })
-                    }
+            User.findOrCreate({
+                spotifyId: profile.id,
+            }, {
+                spotifyId: profile.id,
+                username: profile.username,
+                displayName: profile.displayName,
+                email: profile._json.email,
+                refreshToken: refreshToken,
+                expiresIn: expires_in
+            })
+                .then(user => {
+
+                    delete user.refreshToken
+
+                    user.payload = jwt.sign(JSON.stringify({
+                        accessToken
+                    }), jwtSecret)
+
+                    done(null, user)
                 })
-                .catch(console.log)
+                .catch(console.err)
         }
     )
 )
 
-// jwt strat (we sessionless baybee)
+/*
+    jwt strat (for authenticated routes)
+*/
 passport.use(
     new JWTStrategy(
         {
-            jwtFromRequest: req => req.cookies.jwt,
+            jwtFromRequest: req => {
+                if (req && req.cookies)
+                    return req.cookies['jwt']
+                else
+                    return null
+            },
             secretOrKey: jwtSecret,
         },
         (jwtPayload, done) => {
-            // TODO: token expiry (handled by cookie parser?)
-            // TODO: what should this pass? (user info?)
 
-            return done(null, jwtPayload)
+            if (jwtPayload.accessToken) {
+
+                return done(null, { accessToken: jwtPayload.accessToken })
+
+            } else {
+                return done(null, false)
+            }
         }
     )
 )

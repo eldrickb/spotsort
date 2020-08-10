@@ -2,15 +2,23 @@ const express = require("express")
 const router = express.Router()
 const passport = require("passport")
 
-// should go somethin like
+const apiBuilder = require("../config/spotify-api.js")
 
-// get user songs
+// api builder for each route
+const useApi = (req) => new apiBuilder().setAccessToken(req.user.accessToken).build()
+
+
+// get user profile
 router.get(
-    "/user-songs",
+    "/profile",
     passport.authenticate("jwt", { session: false }),
     (req, res) => {
-        res.end()
+
+        let api = useApi(req)
+
+        api.getMe().then(_ => res.json(_.body))
+
     }
 )
 
-module.expots = router
+module.exports = router

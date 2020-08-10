@@ -2,17 +2,24 @@ require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
-const passport = require("passport")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 
-require("./config/passport-strategy.js")
-
-const authRoutes = require("./routes/auth-routes.js")
-
 const app = express()
 
-// middleware
+const passport = require("passport")
+require("./config/passport-strategy.js")
+
+// custom routes
+const authRoutes = require("./routes/auth-routes.js")
+const userRoutes = require("./routes/user-routes.js")
+
+const PORT = process.env.PORT || 3001
+
+
+/*
+    middleware
+*/
 app.use(passport.initialize())
 app.use(
     cookieParser({
@@ -21,14 +28,15 @@ app.use(
 )
 app.use(
     cors({
-        // TODO: dynamic origin for production variable
-        origin: "localhost:3000",
+        credentials: true,
+        origin: process.env.CLIENT_URL,
     })
 )
-
 app.use(express.json())
 
-// db
+/*
+    connect to db
+*/
 mongoose.connect(
     process.env.DB_URI,
     {
@@ -40,11 +48,16 @@ mongoose.connect(
     }
 )
 
-// routes
+/*
+    tell app to use routes
+*/
 app.use("/auth", authRoutes)
+app.use("/user", userRoutes)
 
-// start
-const PORT = process.env.PORT || 3001
+
+/*
+    good to go baybee
+*/
 app.listen(PORT, () =>
     console.log(`app now listening for requests on port ${PORT}`)
 )

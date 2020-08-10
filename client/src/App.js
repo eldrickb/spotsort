@@ -1,7 +1,8 @@
-// main
+
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import { Route, Link } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
+import config from "./utils/config.js"
 
 // css
 import styled from "@emotion/styled"
@@ -9,18 +10,38 @@ import tw from "tailwind.macro"
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
 
-// socket
-import io from "socket.io-client"
+
+// pages
+import HomePage from "pages/home-page.jsx"
+import LoginPage from "pages/login-page.jsx"
+
+import AuthLoginRedirectPage from "pages/auth/login-redirect-page.jsx"
 
 // components
-import LoginHandler from "./components/auth/login-handler.jsx"
-// import { API_URL } from "./utils/config.js"
-const API_URL = "localhost:3001"
 
 const Session = React.createContext(null)
 
-export default () => (
-    <>
-        <LoginHandler API_URL={API_URL}></LoginHandler>
-    </>
+// let User = ({userDetails}) => <p>Hi, {userDetails.display_name}!</p>
+// User = connect(({userDetails}) => ({userDetails}))(User)
+
+const App = () => (
+
+    <Switch>
+        <Route path="/login">
+            <LoginPage></LoginPage>
+        </Route>
+
+        {/* auth routes */}
+        <Route path="/client-redirect/spotify">
+            <AuthLoginRedirectPage></AuthLoginRedirectPage>
+        </Route>
+
+        <Route path="/">
+            <HomePage></HomePage>
+        </Route>
+    </Switch>
+
 )
+
+
+export default App
