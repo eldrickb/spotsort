@@ -2,9 +2,17 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 /*
+    css
+*/
+import styled from "@emotion/styled"
+import tw from "tailwind.macro"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core"
+
+/*
     components
 */
-import PageWrapper from "../components/wrappers/basic-page-wrapper.jsx"
+import PageWrapper from "components/wrappers/basic-page-wrapper.jsx"
 
 let ContextualizedSwitch = state => (
         <>
@@ -19,6 +27,5 @@ let ContextualizedSwitch = state => (
 )
 export default () => (
     <PageWrapper title="Home">
-        <Link to="/login">Login Here</Link>
     </PageWrapper>
 )

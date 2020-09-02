@@ -2,10 +2,14 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { Route, Link, useHistory } from "react-router-dom"
-import config from "../../utils/config.js"
+import config from "utils/config.js"
 
 
-
+// css
+import styled from "@emotion/styled"
+import tw from "tailwind.macro"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core"
 
 const {API_URL} = config
 const relocationLink = "/"
