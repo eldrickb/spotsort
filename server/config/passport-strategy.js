@@ -6,8 +6,7 @@ const jwtSecret = process.env.JWT_SECRET
 const passportJWT = require("passport-jwt")
 const JWTStrategy = passportJWT.Strategy
 
-const User = require("../models/user-model.js")
-
+const { User, findOrCreateUser } = require("../models/user-model.js")
 
 /*
     spotify strat
@@ -20,28 +19,32 @@ passport.use(
             callbackURL: "/auth/spotify/redirect",
         },
         (accessToken, refreshToken, expires_in, profile, done) => {
+            console.log("finding user")
 
-            User.findOrCreate({
-                spotifyId: profile.id,
-            }, {
-                spotifyId: profile.id,
-                username: profile.username,
-                displayName: profile.displayName,
-                email: profile._json.email,
-                refreshToken: refreshToken,
-                expiresIn: expires_in
-            })
-                .then(user => {
+            let user = findOrCreateUser(
+                { spotifyId: profile.id },
+                {
+                    spotifyId: profile.id,
+                    username: profile.username,
+                    displayName: profile.displayName,
+                    email: profile._json.email,
+                    refreshToken: refreshToken,
+                    expiresIn: expires_in,
+                }
+            )
 
-                    delete user.refreshToken
+            delete user.refreshToken
 
-                    user.payload = jwt.sign(JSON.stringify({
-                        accessToken
-                    }), jwtSecret)
+            user.payload = jwt.sign(
+                JSON.stringify({
+                    accessToken,
+                }),
+                jwtSecret
+            )
 
-                    done(null, user)
-                })
-                .catch(console.err)
+            console.log("payload signed")
+
+            done(null, user)
         }
     )
 )
@@ -52,20 +55,17 @@ passport.use(
 passport.use(
     new JWTStrategy(
         {
-            jwtFromRequest: req => {
-                if (req && req.cookies)
-                    return req.cookies['jwt']
-                else
-                    return null
+            jwtFromRequest: (req) => {
+                if (req && req.cookies) return req.cookies["jwt"]
+                else return null
             },
             secretOrKey: jwtSecret,
         },
         (jwtPayload, done) => {
+            console.log("jwt")
 
             if (jwtPayload.accessToken) {
-
                 return done(null, { accessToken: jwtPayload.accessToken })
-
             } else {
                 return done(null, false)
             }

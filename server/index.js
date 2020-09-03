@@ -16,7 +16,6 @@ const userRoutes = require("./routes/user-routes.js")
 
 const PORT = process.env.PORT || 3001
 
-
 /*
     middleware
 */
@@ -53,7 +52,6 @@ mongoose.connect(
 */
 app.use("/auth", authRoutes)
 app.use("/user", userRoutes)
-
 
 /*
     good to go baybee

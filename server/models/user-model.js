@@ -20,29 +20,39 @@ const userSchema = new Schema({
     },
     refreshToken: {
         type: String,
-        required: true
+        required: true,
     },
     expiresIn: {
         type: String,
-        required: false
-    }
+        required: false,
+    },
 })
-
 
 const User = mongoose.model("user", userSchema)
 
+/**
+ * Utility to handle finding or creating a user
+ * @param {Object} searchCondition Conditions to seartch with
+ * @param {Object} createCondition
+ */
+// TODO: move to static ?
+const findOrCreateUser = (searchCondition, createCondition) => {
+    let user
 
-/* functions */
+    try {
+        user = User.findOne(searchCondition)
 
-User.findOrCreate = (serachCondition,  createCondition) => {
-    return User.findOne(serachCondition).then(user => {
-        if (user) {
-            return user
+        if (!user) {
+            console.log("creating user")
+            user = new User(createCondition).save()
         } else {
-            return new User(createCondition).save()
+            console.log("found user")
         }
+    } catch (err) {
+        throw new Error(err)
+    }
 
-    })
+    return user
 }
 
-module.exports = User
+module.exports = { User, findOrCreateUser }
