@@ -1,17 +1,14 @@
 // main
 import React, { useState, useEffect } from "react"
-import axios from "axios"
 import { Route, Link, useHistory } from "react-router-dom"
 import config from "../../utils/config.js"
+import store from "../../store.js"
 
-
-
-
-const {API_URL} = config
+const { dispatch } = store
+const { API_URL } = config
 const relocationLink = "/"
 
 export default () => {
-
     // TODO: add these to rematch
     const [disabled, setDisabled] = useState(false)
     const [popup, setPopup] = useState(null)
@@ -37,22 +34,18 @@ export default () => {
             `
         )
 
-        let onMessageRecieved = () => {
-
-            console.log("goteem")
-            // todo: get user details
-
+        let onMessageRecieved = (e) => {
+            dispatch({ type: "user/getProfile" })
             history.push(relocationLink)
 
             window.removeEventListener("message", onMessageRecieved)
         }
 
         window.addEventListener("message", onMessageRecieved)
-
     }
 
     // starts the whole thang
-    const startAuth = e => {
+    const startAuth = (e) => {
         if (!disabled) {
             e.preventDefault()
             openPopup()

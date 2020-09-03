@@ -1,20 +1,26 @@
 import React from "react"
-
+import { user } from "models"
+import { connect } from "react-redux"
 
 /*
     components
 */
 
-export default ({title = "Unnamed Page", children}) => (
+const PageWrapper = (props) => (
     <>
         <header>
-            <h1 >{title}</h1>
+            <p>hi, {props.user.me.display_name}</p>
+            <h1>{props.title}</h1>
         </header>
-        <main>
-            {children}
-        </main>
-        <footer>
-            &copy; sierra
-        </footer>
+        <main>{props.children}</main>
+        <footer>&copy; sierra</footer>
     </>
 )
+
+const mapState = (state) => {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(mapState)(PageWrapper)

@@ -43,10 +43,7 @@ const findOrCreateUser = (searchCondition, createCondition) => {
         user = User.findOne(searchCondition)
 
         if (!user) {
-            console.log("creating user")
             user = new User(createCondition).save()
-        } else {
-            console.log("found user")
         }
     } catch (err) {
         throw new Error(err)
