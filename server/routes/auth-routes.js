@@ -24,10 +24,6 @@ router.get("/logout", (req, res) => {
 */
 router.get(
     "/spotify",
-    (req, res, next) => {
-        console.log("get spotify ")
-        next()
-    },
     passport.authenticate("spotify", {
         scope: [
             "user-read-email",
@@ -46,10 +42,6 @@ router.get(
 router.get(
     "/spotify/redirect",
 
-    (req, res, next) => {
-        console.log("get redirect ")
-        next()
-    },
     passport.authenticate("spotify", {
         session: false,
         failureRedirect: "/spotify-failed",

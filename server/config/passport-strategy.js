@@ -19,8 +19,6 @@ passport.use(
             callbackURL: "/auth/spotify/redirect",
         },
         (accessToken, refreshToken, expires_in, profile, done) => {
-            console.log("finding user")
-
             let user = findOrCreateUser(
                 { spotifyId: profile.id },
                 {
@@ -42,8 +40,6 @@ passport.use(
                 jwtSecret
             )
 
-            console.log("payload signed")
-
             done(null, user)
         }
     )
@@ -62,8 +58,6 @@ passport.use(
             secretOrKey: jwtSecret,
         },
         (jwtPayload, done) => {
-            console.log("jwt")
-
             if (jwtPayload.accessToken) {
                 return done(null, { accessToken: jwtPayload.accessToken })
             } else {
