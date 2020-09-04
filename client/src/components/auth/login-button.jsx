@@ -1,6 +1,6 @@
 // main
-import React, { useState, useEffect } from "react"
-import { Route, Link, useHistory } from "react-router-dom"
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
 import config from "../../utils/config.js"
 import store from "../../store.js"
 
@@ -34,14 +34,14 @@ export default () => {
             `
         )
 
-        let onMessageRecieved = (e) => {
+        let onMessageReceived = (e) => {
             dispatch({ type: "user/getProfile" })
             history.push(relocationLink)
 
-            window.removeEventListener("message", onMessageRecieved)
+            window.removeEventListener("message", onMessageReceived)
         }
 
-        window.addEventListener("message", onMessageRecieved)
+        window.addEventListener("message", onMessageReceived)
     }
 
     // starts the whole thang
