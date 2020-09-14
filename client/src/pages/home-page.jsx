@@ -1,24 +1,24 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 
-/*
-    components
-*/
 import PageWrapper from "../components/wrappers/basic-page-wrapper.jsx"
 
-let ContextualizedSwitch = state => (
-        <>
-            {/* {state.loggedIn ?
-                <div>
-                    Welcome, {state.userDetails.display_name}
-                </div>
-                :
-                <Link to="/login">Login Here</Link>
-            } */}
-        </>
-)
-export default () => (
+const HomePage = (props) => (
     <PageWrapper title="Home">
-        <Link to="/login">Login Here</Link>
+        
+        {props.user.loggedIn ? (
+            <div>Welcome, {props.user.me.display_name}</div>
+        ) : (
+            <Link to="/login">Login Here</Link>
+        )}
     </PageWrapper>
 )
+
+const mapState = (state) => {
+    return {
+        user: state.user,
+    }
+}
+
+export default connect(mapState)(HomePage)

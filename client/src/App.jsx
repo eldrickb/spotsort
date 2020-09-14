@@ -7,28 +7,31 @@ import { Switch, Route } from "react-router-dom"
 import HomePage from "./pages/home-page.jsx"
 import LoginPage from "./pages/login-page.jsx"
 
+
 import AuthLoginRedirectPage from "./pages/auth/login-redirect-page.jsx"
+
+
 
 // components
 
 
 const App = () => (
+    <div className="outer" >
+        <Switch>
+            <Route path="/login">
+                <LoginPage></LoginPage>
+            </Route>
 
-    <Switch>
-        <Route path="/login">
-            <LoginPage></LoginPage>
-        </Route>
+            {/* auth routes */}
+            <Route path="/client-redirect/spotify">
+                <AuthLoginRedirectPage></AuthLoginRedirectPage>
+            </Route>
 
-        {/* auth routes */}
-        <Route path="/client-redirect/spotify">
-            <AuthLoginRedirectPage></AuthLoginRedirectPage>
-        </Route>
-
-        <Route path="/">
-            <HomePage></HomePage>
-        </Route>
-    </Switch>
-
+            <Route path="/">
+                <HomePage></HomePage>
+            </Route>
+        </Switch>
+    </div>
 )
 
 
