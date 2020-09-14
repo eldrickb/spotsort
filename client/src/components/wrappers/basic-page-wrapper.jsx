@@ -1,5 +1,4 @@
 import React from "react"
-import { user } from "models"
 import { connect } from "react-redux"
 
 import style from "styles/global.module.css"
@@ -16,7 +15,7 @@ const PageWrapper = (props) => (
         <footer>&copy; sierra</footer>
     </div>
 )
-
+ 
 const mapState = (state) => {
     return {
         user: state.user,

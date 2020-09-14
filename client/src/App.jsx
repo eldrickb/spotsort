@@ -1,14 +1,12 @@
-
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 
-
 // pages
-import HomePage from "./pages/home-page.jsx"
-import LoginPage from "./pages/login-page.jsx"
+import HomePage from "pages/home-page.jsx"
+import LoginPage from "pages/login-page.jsx"
 
 
-import AuthLoginRedirectPage from "./pages/auth/login-redirect-page.jsx"
+import AuthLoginRedirectPage from "pages/auth/login-redirect-page.jsx"
 
 
 
