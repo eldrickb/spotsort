@@ -1,18 +1,34 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { connect } from "react-redux"
 
+import SongItem from "./song-item.jsx"
+
 const SongsPane = (props) => {
+
+
+    useEffect(() => {
+        if (props.songs === undefined) props.getSongs()
+    }, [])
+    
     return (
         <div className={props.className}>
-            <p>Songs pane</p>
+            <div className="songs">
+                {props.songs &&
+                    props.songs.map(({ track }, i) => (
+                        <SongItem track={track} key={i} />
+                    ))}
+            </div>
         </div>
     )
 }
 
-const mapState = (state) => {
-    return {
-        songs: state.songs,
-    }
-}
+const mapState = (state) => ({
+    songs: state.data.songs,
+})
 
-export default connect(mapState)(SongsPane)
+const mapDispatch = (dispatch) => ({
+    getSongs: () => dispatch.data.getSongs(),
+})
+
+
+export default connect(mapState, mapDispatch)(SongsPane)
