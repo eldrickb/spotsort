@@ -14,7 +14,7 @@ export const user = {
             const newState = { ...state }
 
             newState.loggedIn = true
-            newState.me = payload.data
+            newState.me = payload
 
             return newState
         },
@@ -22,11 +22,48 @@ export const user = {
 
     effects: (dispatch) => ({
         async getProfile() {
-            console.log("dispatched")
-
             const profile = await api.get("/user/profile")
 
-            dispatch.user.setUser(profile)
+            dispatch.user.setUser(profile.data)
+        },
+    }),
+}
+
+
+export const data = {
+    state: {
+        songs: undefined,
+        playlists: {},
+    },
+
+    reducers: {
+        setSongs(state, payload) {
+            const newState = { ...state }
+
+            newState.songs = payload
+
+            return newState
+        },
+        setPlaylists(state, payload) {
+            const newState = { ...state }
+
+            newState.playlists = payload
+
+            return newState
+        },
+    },
+
+    effects: (dispatch) => ({
+        async getSongs() {
+            const songs = await api.get("/user/songs")
+
+            dispatch.data.setSongs(songs.data.items)
+        },
+
+        async getPlaylists() {
+            const playlists = await api.get("/user/playlists")
+
+            dispatch.data.setPlaylists(playlists.data)
         },
     }),
 }

@@ -29,7 +29,7 @@ const PageWrapper = (props) => (
         </header>
         <main>{props.children}</main>
 
-        <footer>&copy; eldrick</footer>
+        <footer>&copy; sierra</footer>
     </div>
 )
 

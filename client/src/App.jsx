@@ -13,7 +13,7 @@ import PanelView from "views/panel-view"
 // components
 
 const App = (props) => (
-    <div className="outer" >
+    <div className="outer">
         <Switch>
             <Route path="/login">
                 <LoginView></LoginView>
@@ -25,10 +25,11 @@ const App = (props) => (
             </Route>
 
             <Route path="/">
-                {
-                    props.user.loggedIn ? 
-                    (<PanelView></PanelView>) : (<HomeView></HomeView>)
-                }
+                {props.user.loggedIn ? (
+                    <PanelView></PanelView>
+                ) : (
+                    <HomeView></HomeView>
+                )}
             </Route>
         </Switch>
     </div>
