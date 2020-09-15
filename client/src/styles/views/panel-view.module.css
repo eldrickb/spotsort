@@ -1,0 +1,16 @@
+.this {
+
+    display: flex;
+
+    .songs, .playlists {
+        background: green;
+    }
+
+    .songs {
+        @apply w-vw5/12 mr-vw1/12;
+    }
+
+    .playlists {
+        @apply w-vw4/12;
+    }
+}

@@ -1,4 +1,8 @@
 module.exports = {
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+    },
     theme: {
         fontFamily: {
             display: ["sans-serif"],
@@ -8,6 +12,7 @@ module.exports = {
             // PUT BRAND COLORS HERE
 
             white: "#fff",
+            text: "#D5D5D5",
             gray: {
                 100: "#EFF2F5",
                 200: "#E4E8ED",
@@ -18,6 +23,7 @@ module.exports = {
             },
             black: "#000",
         },
+
         opacity: {
             0: "0",
             10: ".1",

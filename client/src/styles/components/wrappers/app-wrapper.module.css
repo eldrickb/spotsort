@@ -1,0 +1,45 @@
+.this {
+
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 40px;
+
+        color: white;
+        font-weight: bold;
+        @apply text-base;
+
+        .location {
+
+            display: flex;
+
+            .divider {
+                margin: 0 20px;
+                width: 1px;
+                @apply bg-gray-500;   
+            }
+
+            .pageTitle {
+                font-weight: 300;
+            }
+
+        }
+    }
+
+
+
+    main, footer {
+        @apply ml-vw1/12 mr-vw1/12;
+    }
+
+    main {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    footer {
+        opacity: .5;
+    }
+}
