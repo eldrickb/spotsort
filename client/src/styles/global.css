@@ -1,0 +1,13 @@
+:root {
+    background: black;
+    @apply text-text;
+
+    font-size: 14pt;
+
+    font-family: "Inter", sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, span, li {
+    margin: 0;
+}

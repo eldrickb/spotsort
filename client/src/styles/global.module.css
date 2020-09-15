@@ -1,8 +1,0 @@
-.this {
-    
-    @apply bg-black pl-20;
-
-    .outer {
-        @apply text-white;
-    }
-}

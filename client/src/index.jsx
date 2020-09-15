@@ -6,6 +6,7 @@ import { Provider } from "react-redux"
 import store from "store"
 
 import "styles/normalize.css"
+import "styles/global.css"
 
 ReactDOM.render(
     <Provider store={store}>

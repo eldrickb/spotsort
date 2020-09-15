@@ -1,8 +1,8 @@
 // main
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
-import config from "../../utils/config.js"
-import store from "../../store.js"
+import config from "utils/config.js"
+import store from "store.js"
 
 const { dispatch } = store
 const { API_URL } = config
@@ -11,10 +11,10 @@ const relocationLink = "/"
 export default () => {
     // TODO: add these to rematch
     const [disabled, setDisabled] = useState(false)
-    const [popup, setPopup] = useState(null)
+    // const [popup, setPopup] = useState(null)
 
-    // popup shit
-    let history = useHistory()
+    // prepare for redirect
+    const history = useHistory()
 
     // opens popup that starts auth on server
     const openPopup = () => {
