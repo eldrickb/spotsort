@@ -1,12 +1,12 @@
 const passport = require("passport")
 const SpotifyStrategy = require("passport-spotify").Strategy
 
-const jwt = require("jsonwebtoken")
+const { signJwt } = require("../utils/jwt.js")
 const jwtSecret = process.env.JWT_SECRET
 const passportJWT = require("passport-jwt")
 const JWTStrategy = passportJWT.Strategy
 
-const { User, findOrCreateUser } = require("../models/user-model.js")
+const { findOrCreateUser } = require("../models/user-model.js")
 
 /*
     spotify strat
@@ -33,12 +33,10 @@ passport.use(
 
             delete user.refreshToken
 
-            user.payload = jwt.sign(
-                JSON.stringify({
-                    accessToken,
-                }),
-                jwtSecret
-            )
+            user.payload = signJwt({
+                accessToken,
+                refreshToken,
+            })
 
             done(null, user)
         }
@@ -59,7 +57,10 @@ passport.use(
         },
         (jwtPayload, done) => {
             if (jwtPayload.accessToken) {
-                return done(null, { accessToken: jwtPayload.accessToken })
+                return done(null, {
+                    accessToken: jwtPayload.accessToken,
+                    refreshToken: jwtPayload.refreshToken,
+                })
             } else {
                 return done(null, false)
             }

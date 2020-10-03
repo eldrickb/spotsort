@@ -1,10 +1,10 @@
 .this {
-
     display: flex;
-
 
     .songs {
         @apply w-vw5/12 mr-vw1/12;
+        height: 80vh;
+        overflow: scroll;
     }
 
     .playlists {

@@ -1,20 +1,10 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 
-import styles from "styles/components/wrappers/app-wrapper.module.css"
+import UserArea from "components/user/user-area.jsx"
+import TestPanel from "components/test-panel.jsx"
 
-const UserStatus = ({ user }) => (
-    <div className="user-status">
-        {user.loggedIn ? (
-            <p>Hi, {user.me.display_name}</p>
-        ) : (
-            <p>
-                <Link to="/login">Login Here</Link>
-            </p>
-        )}
-    </div>
-)
+import styles from "styles/components/wrappers/app-wrapper.module.css"
 
 const PageWrapper = (props) => (
     <div className={styles.this}>
@@ -25,11 +15,11 @@ const PageWrapper = (props) => (
                 <span className={styles.pageTitle}>{props.title}</span>
             </div>
 
-            <UserStatus user={props.user} />
+            <UserArea />
         </header>
         <main>{props.children}</main>
 
-        <footer>&copy; sierra</footer>
+        <TestPanel />
     </div>
 )
 

@@ -29,10 +29,10 @@ export const user = {
     }),
 }
 
-
 export const data = {
     state: {
         songs: undefined,
+        totalSongs: -1,
         playlists: {},
     },
 
@@ -51,19 +51,105 @@ export const data = {
 
             return newState
         },
+        setTotalSongs(state, payload) {
+            const newState = { ...state }
+
+            newState.totalSongs = payload
+
+            return newState
+        },
     },
 
     effects: (dispatch) => ({
         async getSongs() {
-            const songs = await api.get("/user/songs")
+            let songs = []
+            let total = 0
+            let offset = 0
 
-            dispatch.data.setSongs(songs.data.items)
+            // communicate fetching started
+            dispatch.communication.setFetchingStatus("songs")
+
+            // set offset
+            await api
+                .get("/user/songs?limit=1")
+                .then((resp) => resp.data.body)
+                .then((data) => {
+                    // console.log(data.total)
+                    total = data.total
+                })
+
+            dispatch.data.setTotalSongs(total)
+
+            // get all songs
+            // TODO remove soft limit
+            while (offset < 70) {
+                // fetch next songs
+                const nextSongs = await api.get(`/user/songs?offset=${offset}`)
+
+                // add songs, update offset
+                nextSongs.data.body.items.forEach((song) => {
+                    songs.push(song)
+                    offset++
+                })
+
+                // communicate progress
+                dispatch.communication.setProgress({
+                    current: offset,
+                    finished: total,
+                })
+            }
+
+            // set songs
+            dispatch.data.setSongs(songs)
+
+            // communicate fetching finished
+            dispatch.communication.setFetchingStatus(undefined)
         },
 
         async getPlaylists() {
             const playlists = await api.get("/user/playlists")
 
             dispatch.data.setPlaylists(playlists.data)
+        },
+    }),
+}
+
+export const communication = {
+    state: {
+        fetching: undefined,
+        progress: {},
+    },
+
+    reducers: {
+        setFetchingStatus(state, payload) {
+            const newState = { ...state }
+
+            newState.fetching = payload
+
+            return newState
+        },
+
+        setProgress(state, payload) {
+            const newState = { ...state }
+
+            newState.progress = payload
+
+            return newState
+        },
+    },
+}
+
+export const session = {
+    state: {},
+
+    reducers: {},
+    effects: (dispatch) => ({
+        async tryFail() {
+            return await api.get("/user/unauthorized")
+        },
+
+        async refreshAccessToken() {
+            return await api.get("/auth/refreshAccessToken")
         },
     }),
 }

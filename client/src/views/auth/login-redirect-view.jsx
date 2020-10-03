@@ -6,7 +6,7 @@ export default () => {
         const params = window.location.search
         if (window.opener) {
             // send them to the opening window
-            window.opener.postMessage(params)
+            window.opener.postMessage({ ...params, canReturn: true })
 
             // close the popup
             window.close()
