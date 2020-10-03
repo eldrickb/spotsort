@@ -6,9 +6,7 @@ import { Switch, Route } from "react-router-dom"
 import HomeView from "views/home-view.jsx"
 import LoginView from "views/auth/login-view.jsx"
 import AuthLoginRedirectView from "views/auth/login-redirect-view.jsx"
-import PanelView from "views/panel-view"
-
-
+import PanelView from "views/panel-view.jsx"
 
 // components
 
@@ -40,6 +38,5 @@ const mapState = (state) => {
         user: state.user,
     }
 }
-
 
 export default connect(mapState)(App)

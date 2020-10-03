@@ -1,0 +1,49 @@
+.this {
+    span {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .userProfile {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 36px;
+            width: 36px;
+            border-radius: 999px;
+
+            margin-right: 10px;
+        }
+    }
+
+    .userDropdown {
+        width: 200px;
+        right: 20px;
+        margin-top: 20px;
+
+        background: black;
+        border-radius: 8px;
+        overflow: hidden;
+        font-weight: initial;
+        position: fixed;
+
+        span {
+            background: rgba(255, 255, 255, 0.18);
+            display: block;
+            padding: 12px 22px;
+        }
+    }
+
+    .arrowIcon {
+        height: 10px;
+        width: 10px;
+        margin-left: 10px;
+
+        background: white;
+    }
+}

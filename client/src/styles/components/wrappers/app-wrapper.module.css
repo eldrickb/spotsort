@@ -1,5 +1,4 @@
 .this {
-
     min-height: 100vh;
 
     header {
@@ -12,34 +11,31 @@
         @apply text-base;
 
         .location {
-
             display: flex;
 
             .divider {
                 margin: 0 20px;
                 width: 1px;
-                @apply bg-gray-500;   
+                @apply bg-gray-500;
             }
 
             .pageTitle {
                 font-weight: 300;
             }
-
         }
     }
 
-
-
-    main, footer {
+    main,
+    footer {
         @apply ml-vw1/12 mr-vw1/12;
     }
 
     main {
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: 40px;
+        margin-bottom: 20px;
     }
 
     footer {
-        opacity: .5;
+        opacity: 0.5;
     }
 }

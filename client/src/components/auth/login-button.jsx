@@ -1,14 +1,12 @@
-// main
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import config from "utils/config.js"
-import store from "store.js"
+import { connect } from "react-redux"
 
-const { dispatch } = store
 const { API_URL } = config
 const relocationLink = "/"
 
-export default () => {
+const LoginButton = (props) => {
     // TODO: add these to rematch
     const [disabled, setDisabled] = useState(false)
     // const [popup, setPopup] = useState(null)
@@ -24,7 +22,7 @@ export default () => {
         const top = window.innerHeight / 2 - height / 2
         const url = `${API_URL}/auth/spotify`
 
-        let popup = window.open(
+        const popup = window.open(
             url,
             "",
             `
@@ -34,11 +32,12 @@ export default () => {
             `
         )
 
-        let onMessageReceived = (e) => {
-            dispatch({ type: "user/getProfile" })
-            history.push(relocationLink)
-
+        const onMessageReceived = (e) => {
             window.removeEventListener("message", onMessageReceived)
+
+            props.getProfile()
+
+            history.push(relocationLink)
         }
 
         window.addEventListener("message", onMessageReceived)
@@ -61,3 +60,11 @@ export default () => {
         </div>
     )
 }
+
+const mapState = (state) => ({})
+
+const mapDispatch = (dispatch) => ({
+    getProfile: dispatch.user.getProfile,
+})
+
+export default connect(mapState, mapDispatch)(LoginButton)

@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3001
 app.use(passport.initialize())
 app.use(
     cookieParser({
-        expires: 24 * 60 * 60 * 1000,
+        expires: 86400000,
     })
 )
 app.use(
