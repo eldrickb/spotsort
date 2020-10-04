@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 
 import UserArea from "components/user/user-area.jsx"
 import TestPanel from "components/test-panel.jsx"
+import Toast from "components/communication/toast.jsx"
 
 import styles from "styles/components/wrappers/app-wrapper.module.css"
 
@@ -19,6 +20,8 @@ const PageWrapper = (props) => (
         </header>
         <main>{props.children}</main>
 
+        {/* Overlay */}
+        {props.toast && <Toast />}
         <TestPanel />
     </div>
 )
@@ -26,6 +29,7 @@ const PageWrapper = (props) => (
 const mapState = (state) => {
     return {
         user: state.user,
+        toast: state.communication.toast,
     }
 }
 

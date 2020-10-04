@@ -3,6 +3,7 @@ const router = express.Router()
 const passport = require("passport")
 const { useApi } = require("../config/spotifyApiBuilder.js")
 const { signJwt } = require("../utils/jwt.js")
+const SpotifyWebApi = require("spotify-web-api-node")
 
 /*
     utils
@@ -19,7 +20,16 @@ router.get(
     "/refreshAccessToken",
     passport.authenticate("jwt", { session: false }),
     (req, res, next) => {
-        const api = useApi(req)
+        // const api = useApi(req)
+
+        const api = new SpotifyWebApi({
+            clientID: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+        })
+
+        api.setRefreshToken(req.user.refreshToken)
+
+        console.log("rAT refresh token " + req.user.refreshToken)
 
         console.log("refresh request received, attempting to refresh")
 
@@ -35,14 +45,12 @@ router.get(
                 console.log(
                     `old: ${req.user.accessToken}; new: ${data.body["access_token"]}`
                 )
+
                 next()
             })
 
             // if refresh failed
-            .catch((err) => {
-                console.log("refresh failed")
-                next(err)
-            })
+            .catch(next)
     },
     bindPayloadToCookie
 )
@@ -58,7 +66,7 @@ router.get("/logout", (req, res) => {
 })
 
 /*
-    initial spotify rouets
+    initial spotify routes
 */
 router.get(
     "/spotify",

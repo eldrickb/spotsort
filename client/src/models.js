@@ -116,11 +116,22 @@ export const data = {
 
 export const communication = {
     state: {
+        toast: undefined,
         fetching: undefined,
         progress: {},
     },
 
     reducers: {
+        throwToast(state, payload) {
+            const newState = { ...state }
+            newState.toast = payload
+            return newState
+        },
+        clearToast(state) {
+            const newState = { ...state }
+            newState.toast = undefined
+            return newState
+        },
         setFetchingStatus(state, payload) {
             const newState = { ...state }
 

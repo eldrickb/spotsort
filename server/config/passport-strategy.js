@@ -31,12 +31,14 @@ passport.use(
                 }
             )
 
-            delete user.refreshToken
+            console.log("strat refresh token" + refreshToken)
 
             user.payload = signJwt({
                 accessToken,
                 refreshToken,
             })
+
+            delete user.refreshToken
 
             done(null, user)
         }
