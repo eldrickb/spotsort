@@ -45,7 +45,6 @@ router.get(
                 console.log(
                     `old: ${req.user.accessToken}; new: ${data.body["access_token"]}`
                 )
-
                 next()
             })
 
