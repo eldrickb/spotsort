@@ -1,0 +1,642 @@
+{
+    "artists": {
+        "href": "https://api.spotify.com/v1/search?query=The+Beatles&type=artist&locale=*&offset=0&limit=20",
+        "items": [
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2"
+                },
+                "followers": { "href": null, "total": 27463435 },
+                "genres": [
+                    "british invasion",
+                    "classic rock",
+                    "merseybeat",
+                    "psychedelic rock",
+                    "rock"
+                ],
+                "href": "https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2",
+                "id": "3WrFJ7ztbogyGnTHbHJFl2",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5ebe9348cc01ff5d55971b22433",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174e9348cc01ff5d55971b22433",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178e9348cc01ff5d55971b22433",
+                        "width": 160
+                    }
+                ],
+                "name": "The Beatles",
+                "popularity": 82,
+                "type": "artist",
+                "uri": "spotify:artist:3WrFJ7ztbogyGnTHbHJFl2"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/5WTOPRu5W51m3TEU4BupIR"
+                },
+                "followers": { "href": null, "total": 326 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/5WTOPRu5W51m3TEU4BupIR",
+                "id": "5WTOPRu5W51m3TEU4BupIR",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273bf96cecb47be49ab7c85589f",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02bf96cecb47be49ab7c85589f",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851bf96cecb47be49ab7c85589f",
+                        "width": 64
+                    }
+                ],
+                "name": "The Silver Beatles",
+                "popularity": 12,
+                "type": "artist",
+                "uri": "spotify:artist:5WTOPRu5W51m3TEU4BupIR"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3oDbviiivRWhXwIE8hxkVV"
+                },
+                "followers": { "href": null, "total": 4497730 },
+                "genres": [
+                    "baroque pop",
+                    "classic rock",
+                    "folk rock",
+                    "mellow gold",
+                    "psychedelic rock",
+                    "rock",
+                    "singer-songwriter",
+                    "sunshine pop"
+                ],
+                "href": "https://api.spotify.com/v1/artists/3oDbviiivRWhXwIE8hxkVV",
+                "id": "3oDbviiivRWhXwIE8hxkVV",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5eb10d4a1b12c6ceda12d7cd248",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab6761610000517410d4a1b12c6ceda12d7cd248",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f17810d4a1b12c6ceda12d7cd248",
+                        "width": 160
+                    }
+                ],
+                "name": "The Beach Boys",
+                "popularity": 71,
+                "type": "artist",
+                "uri": "spotify:artist:3oDbviiivRWhXwIE8hxkVV"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/5o723EMxNulM5ydXRh7Qkk"
+                },
+                "followers": { "href": null, "total": 2395 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/5o723EMxNulM5ydXRh7Qkk",
+                "id": "5o723EMxNulM5ydXRh7Qkk",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5ebd19de1859567e3305f238758",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174d19de1859567e3305f238758",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178d19de1859567e3305f238758",
+                        "width": 160
+                    }
+                ],
+                "name": "The Beatles Complete On Ukulele",
+                "popularity": 12,
+                "type": "artist",
+                "uri": "spotify:artist:5o723EMxNulM5ydXRh7Qkk"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/22bE4uQ6baNwSHPVcDxLCe"
+                },
+                "followers": { "href": null, "total": 13973320 },
+                "genres": [
+                    "album rock",
+                    "british invasion",
+                    "classic rock",
+                    "rock"
+                ],
+                "href": "https://api.spotify.com/v1/artists/22bE4uQ6baNwSHPVcDxLCe",
+                "id": "22bE4uQ6baNwSHPVcDxLCe",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5ebe4cea917b68726aadb4854b8",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174e4cea917b68726aadb4854b8",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178e4cea917b68726aadb4854b8",
+                        "width": 160
+                    }
+                ],
+                "name": "The Rolling Stones",
+                "popularity": 77,
+                "type": "artist",
+                "uri": "spotify:artist:22bE4uQ6baNwSHPVcDxLCe"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3vuYd8ifdPWL3TgjPXgfgF"
+                },
+                "followers": { "href": null, "total": 863 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/3vuYd8ifdPWL3TgjPXgfgF",
+                "id": "3vuYd8ifdPWL3TgjPXgfgF",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b2737ba298d0366a41d713e9d847",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e027ba298d0366a41d713e9d847",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d000048517ba298d0366a41d713e9d847",
+                        "width": 64
+                    }
+                ],
+                "name": "The New Beatles",
+                "popularity": 13,
+                "type": "artist",
+                "uri": "spotify:artist:3vuYd8ifdPWL3TgjPXgfgF"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/4STHEaNw4mPZ2tzheohgXB"
+                },
+                "followers": { "href": null, "total": 4759831 },
+                "genres": ["classic rock", "mellow gold", "rock", "soft rock"],
+                "href": "https://api.spotify.com/v1/artists/4STHEaNw4mPZ2tzheohgXB",
+                "id": "4STHEaNw4mPZ2tzheohgXB",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5eb03bf2fe26e397122faa3d323",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab6761610000517403bf2fe26e397122faa3d323",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f17803bf2fe26e397122faa3d323",
+                        "width": 160
+                    }
+                ],
+                "name": "Paul McCartney",
+                "popularity": 69,
+                "type": "artist",
+                "uri": "spotify:artist:4STHEaNw4mPZ2tzheohgXB"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/4s0XGFVyR7iLaxdxbuKygy"
+                },
+                "followers": { "href": null, "total": 17 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/4s0XGFVyR7iLaxdxbuKygy",
+                "id": "4s0XGFVyR7iLaxdxbuKygy",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b27314f0e7eda7a5885bacb311f4",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e0214f0e7eda7a5885bacb311f4",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d0000485114f0e7eda7a5885bacb311f4",
+                        "width": 64
+                    }
+                ],
+                "name": "The Beatles on Piano",
+                "popularity": 6,
+                "type": "artist",
+                "uri": "spotify:artist:4s0XGFVyR7iLaxdxbuKygy"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d"
+                },
+                "followers": { "href": null, "total": 49890156 },
+                "genres": ["classic rock", "glam rock", "rock"],
+                "href": "https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d",
+                "id": "1dfeR4HaWDbWqFHLkxsg1d",
+                "images": [
+                    {
+                        "height": 806,
+                        "url": "https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982",
+                        "width": 999
+                    },
+                    {
+                        "height": 516,
+                        "url": "https://i.scdn.co/image/af2b8e57f6d7b5d43a616bd1e27ba552cd8bfd42",
+                        "width": 640
+                    },
+                    {
+                        "height": 161,
+                        "url": "https://i.scdn.co/image/c06971e9ff81696699b829484e3be165f4e64368",
+                        "width": 200
+                    },
+                    {
+                        "height": 52,
+                        "url": "https://i.scdn.co/image/6dd0ffd270903d1884edf9058c49f58b03db893d",
+                        "width": 64
+                    }
+                ],
+                "name": "Queen",
+                "popularity": 82,
+                "type": "artist",
+                "uri": "spotify:artist:1dfeR4HaWDbWqFHLkxsg1d"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/2HPX6LgKluE3jv3Q6ZKVyX"
+                },
+                "followers": { "href": null, "total": 60 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/2HPX6LgKluE3jv3Q6ZKVyX",
+                "id": "2HPX6LgKluE3jv3Q6ZKVyX",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273a7f376fa90732288b854a491",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02a7f376fa90732288b854a491",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851a7f376fa90732288b854a491",
+                        "width": 64
+                    }
+                ],
+                "name": "The Beatles Piano Covers",
+                "popularity": 7,
+                "type": "artist",
+                "uri": "spotify:artist:2HPX6LgKluE3jv3Q6ZKVyX"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3IYUhFvPQItj6xySrBmZkd"
+                },
+                "followers": { "href": null, "total": 6589206 },
+                "genres": [
+                    "album rock",
+                    "classic rock",
+                    "country rock",
+                    "rock",
+                    "southern rock",
+                    "swamp rock"
+                ],
+                "href": "https://api.spotify.com/v1/artists/3IYUhFvPQItj6xySrBmZkd",
+                "id": "3IYUhFvPQItj6xySrBmZkd",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5ebd2e2b04b7ba5d60b72f54506",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174d2e2b04b7ba5d60b72f54506",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178d2e2b04b7ba5d60b72f54506",
+                        "width": 160
+                    }
+                ],
+                "name": "Creedence Clearwater Revival",
+                "popularity": 79,
+                "type": "artist",
+                "uri": "spotify:artist:3IYUhFvPQItj6xySrBmZkd"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1NBrPCyaqHOfVOJgjfybVi"
+                },
+                "followers": { "href": null, "total": 143 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/1NBrPCyaqHOfVOJgjfybVi",
+                "id": "1NBrPCyaqHOfVOJgjfybVi",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b2735ab3ee1d540c1550c4ffe6d1",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e025ab3ee1d540c1550c4ffe6d1",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d000048515ab3ee1d540c1550c4ffe6d1",
+                        "width": 64
+                    }
+                ],
+                "name": "Jolly Joker and the Plastic Beatles of the Universe",
+                "popularity": 5,
+                "type": "artist",
+                "uri": "spotify:artist:1NBrPCyaqHOfVOJgjfybVi"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/4Fgf6RvuWpiwDXSE7Vammx"
+                },
+                "followers": { "href": null, "total": 93730 },
+                "genres": ["beatlesque"],
+                "href": "https://api.spotify.com/v1/artists/4Fgf6RvuWpiwDXSE7Vammx",
+                "id": "4Fgf6RvuWpiwDXSE7Vammx",
+                "images": [
+                    {
+                        "height": 1000,
+                        "url": "https://i.scdn.co/image/5aa5e5e3b2caae03c5a8ebdd2a60d7d717275e46",
+                        "width": 1000
+                    },
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/2e54e1e6db905a570838d8f367f64c62ce55880a",
+                        "width": 640
+                    },
+                    {
+                        "height": 200,
+                        "url": "https://i.scdn.co/image/99a77f2d142761bd40ca5f5d7fb2bda987b15399",
+                        "width": 200
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/2a33482c062ce6796b27ba1ed52f9b1cc851bb8a",
+                        "width": 64
+                    }
+                ],
+                "name": "George Martin",
+                "popularity": 62,
+                "type": "artist",
+                "uri": "spotify:artist:4Fgf6RvuWpiwDXSE7Vammx"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3Jee0nDYfCqDBV98n5gLhY"
+                },
+                "followers": { "href": null, "total": 145 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/3Jee0nDYfCqDBV98n5gLhY",
+                "id": "3Jee0nDYfCqDBV98n5gLhY",
+                "images": [],
+                "name": "The Beatles Revival Band",
+                "popularity": 6,
+                "type": "artist",
+                "uri": "spotify:artist:3Jee0nDYfCqDBV98n5gLhY"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/3sFhA6G1N0gG1pszb6kk1m"
+                },
+                "followers": { "href": null, "total": 1078622 },
+                "genres": [
+                    "album rock",
+                    "art rock",
+                    "classic rock",
+                    "folk rock",
+                    "mellow gold",
+                    "rock",
+                    "singer-songwriter",
+                    "soft rock"
+                ],
+                "href": "https://api.spotify.com/v1/artists/3sFhA6G1N0gG1pszb6kk1m",
+                "id": "3sFhA6G1N0gG1pszb6kk1m",
+                "images": [
+                    {
+                        "height": 184,
+                        "url": "https://i.scdn.co/image/826d206c73f95f1353383c17f27f22aeb628369a",
+                        "width": 220
+                    },
+                    {
+                        "height": 167,
+                        "url": "https://i.scdn.co/image/fc2d3f153a9d23ef23571795307c8e28b9ca4de6",
+                        "width": 200
+                    },
+                    {
+                        "height": 54,
+                        "url": "https://i.scdn.co/image/9adcfb5edc04be0afeaef062c4f689c4a2039bad",
+                        "width": 64
+                    }
+                ],
+                "name": "Wings",
+                "popularity": 62,
+                "type": "artist",
+                "uri": "spotify:artist:3sFhA6G1N0gG1pszb6kk1m"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1o87i8ILTqu19oPNCsWTIo"
+                },
+                "followers": { "href": null, "total": 10 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/1o87i8ILTqu19oPNCsWTIo",
+                "id": "1o87i8ILTqu19oPNCsWTIo",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273ccdaa0ddf2f3e09c7a542fb1",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02ccdaa0ddf2f3e09c7a542fb1",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851ccdaa0ddf2f3e09c7a542fb1",
+                        "width": 64
+                    }
+                ],
+                "name": "The Beatless",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:1o87i8ILTqu19oPNCsWTIo"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/4x1nvY2FN8jxqAFA0DA02H"
+                },
+                "followers": { "href": null, "total": 5997834 },
+                "genres": ["classic rock", "rock"],
+                "href": "https://api.spotify.com/v1/artists/4x1nvY2FN8jxqAFA0DA02H",
+                "id": "4x1nvY2FN8jxqAFA0DA02H",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5eb207c6849d1a1f4480e6aa222",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab67616100005174207c6849d1a1f4480e6aa222",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f178207c6849d1a1f4480e6aa222",
+                        "width": 160
+                    }
+                ],
+                "name": "John Lennon",
+                "popularity": 66,
+                "type": "artist",
+                "uri": "spotify:artist:4x1nvY2FN8jxqAFA0DA02H"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/7EXfa2D0ByS8AdVSRovXwG"
+                },
+                "followers": { "href": null, "total": 2 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/7EXfa2D0ByS8AdVSRovXwG",
+                "id": "7EXfa2D0ByS8AdVSRovXwG",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab67616d0000b273ca1d81856cfdd465a45174bf",
+                        "width": 640
+                    },
+                    {
+                        "height": 300,
+                        "url": "https://i.scdn.co/image/ab67616d00001e02ca1d81856cfdd465a45174bf",
+                        "width": 300
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/ab67616d00004851ca1d81856cfdd465a45174bf",
+                        "width": 64
+                    }
+                ],
+                "name": "The Beatless",
+                "popularity": 0,
+                "type": "artist",
+                "uri": "spotify:artist:7EXfa2D0ByS8AdVSRovXwG"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/36QJpDe2go2KgaRleHCDTp"
+                },
+                "followers": { "href": null, "total": 14281818 },
+                "genres": ["album rock", "classic rock", "hard rock", "rock"],
+                "href": "https://api.spotify.com/v1/artists/36QJpDe2go2KgaRleHCDTp",
+                "id": "36QJpDe2go2KgaRleHCDTp",
+                "images": [
+                    {
+                        "height": 600,
+                        "url": "https://i.scdn.co/image/207803ce008388d3427a685254f9de6a8f61dc2e",
+                        "width": 600
+                    },
+                    {
+                        "height": 200,
+                        "url": "https://i.scdn.co/image/b0248a44865493e6a03832aa89854ada16ff07a8",
+                        "width": 200
+                    },
+                    {
+                        "height": 64,
+                        "url": "https://i.scdn.co/image/16eb3cdae0d824b520ac17710e943a99d3ef6602",
+                        "width": 64
+                    }
+                ],
+                "name": "Led Zeppelin",
+                "popularity": 74,
+                "type": "artist",
+                "uri": "spotify:artist:36QJpDe2go2KgaRleHCDTp"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/5Pi3viYqawZx95Gan2dyC3"
+                },
+                "followers": { "href": null, "total": 3036 },
+                "genres": [],
+                "href": "https://api.spotify.com/v1/artists/5Pi3viYqawZx95Gan2dyC3",
+                "id": "5Pi3viYqawZx95Gan2dyC3",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/ab6761610000e5eb93f290ee7e61cff9b5dc0e49",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/ab6761610000517493f290ee7e61cff9b5dc0e49",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/ab6761610000f17893f290ee7e61cff9b5dc0e49",
+                        "width": 160
+                    }
+                ],
+                "name": "I Hate The Beatles",
+                "popularity": 3,
+                "type": "artist",
+                "uri": "spotify:artist:5Pi3viYqawZx95Gan2dyC3"
+            }
+        ],
+        "limit": 20,
+        "next": "https://api.spotify.com/v1/search?query=The+Beatles&type=artist&locale=*&offset=20&limit=20",
+        "offset": 0,
+        "previous": null,
+        "total": 858
+    }
+}
