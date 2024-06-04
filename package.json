@@ -1,15 +1,19 @@
 {
-    "name": "spotlist",
+    "name": "music-tools",
     "version": "1.0.0",
-    "description": "spotify playlist/library organizer",
+    "description": "API tools and scripts for managing my music library across platforms",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "server": "npm start --prefix server",
         "client": "npm start --prefix client",
-        "start": "concurrently \"npm run server\" \"npm run client\""
+        "start": "node index.js"
     },
-    "author": "s1erra",
+    "author": "Sierra Isobel",
     "license": "ISC",
-    "dependencies": {}
+    "dependencies": {
+        "@spotify/web-api-ts-sdk": "^1.2.0",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2"
+    }
 }
